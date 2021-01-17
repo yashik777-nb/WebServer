@@ -1,15 +1,17 @@
 {
-  "name": "WebServer",
+  "name": "webserver",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "Weather Application",
+  "main": "src/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Yash",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "hbs": "^4.1.1"
   },
   "devDependencies": {},
   "repository": {
@@ -19,6 +21,5 @@
   "bugs": {
     "url": "https://github.com/yashik777-nb/WebServer/issues"
   },
-  "homepage": "https://github.com/yashik777-nb/WebServer#readme",
-  "description": ""
+  "homepage": "https://github.com/yashik777-nb/WebServer#readme"
 }
