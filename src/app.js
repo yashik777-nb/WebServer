@@ -3,9 +3,16 @@ const express = require("express");
 
 const app = express();
 
+// Deifne paths for express config
 // Serve the HTML Content folder
 const publicDirectoryFolder = path.join(__dirname, "../public");
+const viewsPath = path.join(__dirname, "../views");
+
+// Setup handle bars engine and views
 app.set("view engine", "hbs");
+app.set("views", viewsPath);
+
+// Set up static directory to server
 app.use(express.static(publicDirectoryFolder));
 
 app.get("", (req, res) => {
