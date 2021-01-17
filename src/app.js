@@ -15,7 +15,7 @@ app.set("view engine", "hbs");
 app.set("views", viewsPath);
 hbs.registerPartials(partialspath);
 
-// Set up static directory to server
+// Set up static and dynamic directory to server, matches happen in sequence
 app.use(express.static(publicDirectoryFolder));
 
 app.get("", (req, res) => {
@@ -40,25 +40,25 @@ app.get("/help", (req, res) => {
   });
 });
 
-// Domain = app.com
-// pages -> app.com/about
-// pages -> app.com/help
-
-// app.get("", (req, res) => {
-//   res.send(`<h1>Weather</h1>`);
-// });
-
-// app.get("/help", (req, res) => {
-//   res.send([{ name: "Yash" }, { name: "Sai" }]);
-// });
-
-// app.get("/about", (req, res) => {
-//   res.send("<h1>About Title</h1>");
-// });
-
 app.get("/weather", (req, res) => {
   res.send({
     weather: "Hyderabad ",
+  });
+});
+
+app.get("/help/*", (req, res) => {
+  res.render("404", {
+    title: "Page Error",
+    name: "Yash",
+    errorMmessage: "Help Article Not found",
+  });
+});
+
+app.get("*", (req, res) => {
+  res.render("404", {
+    title: "Page Error",
+    name: "Yash",
+    errorMmessage: "Page Not Found",
   });
 });
 
