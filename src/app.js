@@ -49,8 +49,11 @@ app.get("/weather", (req, res) => {
   }
   geoCode(
     req.query.address,
-    (error, { latitude, longitude, location } = {}) => {
-      if (error) return { error };
+    (
+      geoError,
+      { latitude = 23, longitude = 23, location = "Hyderabad" } = {}
+    ) => {
+      if (geoError) return { error: geoError };
 
       forecast({ latitude, longitude }, (error, forecastData) => {
         if (error) return { error };
