@@ -8,7 +8,7 @@ function submitForm(e) {
   const messageOne = document.getElementById("message-1");
   const messageTwo = document.getElementById("message-2");
 
-  fetch(`/weather?address=${searchValue}`)
+  fetch(`http://localhost:3000/weather?address=${searchValue}`)
     .then((response) => response.json())
     .then((data) => {
       if (data.error) {
