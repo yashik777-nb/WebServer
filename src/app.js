@@ -5,6 +5,9 @@ const geoCode = require("./utils/geoCode.js");
 const forecast = require("./utils/forecast.js");
 const app = express();
 
+//heroku
+const port = process.env.PORT || 3000;
+
 // Deifne paths for express config
 // Serve the HTML Content folder
 const publicDirectoryFolder = path.join(__dirname, "../public");
@@ -95,6 +98,6 @@ app.get("*", (req, res) => {
 });
 
 // Start the server with https you need sercer certificates
-var httpsServer = app.listen(3000, () => {
+var httpsServer = app.listen(port, () => {
   console.log("Server is up on port 3000");
 });
